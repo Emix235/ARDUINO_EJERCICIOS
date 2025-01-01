@@ -1,0 +1,76 @@
+int e1=0;
+int e2=0;
+int e3=0;
+int e4=0;
+
+
+int estadoA1=0;
+int estadoA2=0;
+int estadoA3=0;
+int estadoA4=0;
+
+int s1=0;
+int s2=0;
+int s3=0;
+int s4=0;
+
+void setup() {
+  pinMode(1, INPUT); //declaramos al boton como dato de entrada
+  pinMode(0, OUTPUT); //declaramos al led como dato de salida
+  pinMode(3, INPUT);
+  pinMode(2, OUTPUT);
+  pinMode(8, INPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, INPUT);
+  pinMode(11, OUTPUT);
+}
+
+void loop() {
+  e1 = digitalRead(1);
+  e2 = digitalRead(3);
+  e3 = digitalRead(8);
+  e4 = digitalRead(10);
+  if((e1==1) && (estadoA1==0)){
+    s1=1-s1;
+    delay(20);
+  }
+  estadoA1=e1;
+  if(s1==1){
+    digitalWrite(0, 1);  
+  }else{
+    digitalWrite(0, 0);
+  }
+
+  if((e2==1) && (estadoA2==0)){
+    s2=1-s2;
+    delay(20);
+  }
+  estadoA2=e2;
+  if(s2==1){
+    digitalWrite(2, 1);  
+  }else{
+    digitalWrite(2, 0);
+  }
+
+  if((e3==1) && (estadoA3==0)){
+    s3=1-s3;
+    delay(20);
+  }
+  estadoA3=e3;
+  if(s3==1){
+    digitalWrite(9, 1);  
+  }else{
+    digitalWrite(9, 0);
+  }
+  
+  if((e4==1) && (estadoA4==0)){
+    s4=1-s4;
+    delay(20);
+  }
+  estadoA4=e4;
+  if(s4==1){
+    digitalWrite(11, 1);  
+  }else{
+    digitalWrite(11, 0);
+  }
+}
